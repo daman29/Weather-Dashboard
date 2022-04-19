@@ -4,3 +4,9 @@ body{
 header{
     font-weight: 600;
 }
+#break{
+    height: 3px;
+    background-color: #000;
+    border-radius: 50px;
+    border: 1px solid #000
+}
