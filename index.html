@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Watch</title>
   </head>
+
   <body
     class="container mx-auto bg-slate-300 flex flex-col justify-center items-center max-h-screen"
   >
@@ -25,23 +26,39 @@
       <h1 class="text-5xl text-center text-white py-2.5">Weather Watch</h1>
     </header>
 
-    <main class="container flex flex-row justify-around items-center">
-
+    <main class="container flex flex-row justify-around">
       <div class="basis-1/4 flex flex-col items-center justify-center">
-          <h2 class="text-2xl text-center text-dark font-bold py-2.5">Search for a City:</h2>
-          <input id="city-name" class="rounded-2xl text-center py-1 px-2.5 mb-2.5 mt-1 w-full" type="text" placeholder="Adelaide">
-          <button id="search-btn" class="rounded-2xl bg-sky-500 hover:bg-indigo-600 py-1 px-2.5 w-full mt-2 hover:text-white">Search</button>
-          <div class="flex flex-col items-center justify-center">
-            <div id="break" class="w-full"></div>
-            <ul id="history-container"></ul>
-          </div>
+        <h2 class="text-2xl text-center text-dark font-bold py-2.5">
+          Search for a City:
+        </h2>
+        <input
+          id="city-name"
+          class="rounded-2xl text-center py-1 px-2.5 mb-2.5 mt-1 w-full"
+          type="text"
+          placeholder="Adelaide"
+        />
+        <button
+          id="search-btn"
+          class="rounded-2xl bg-sky-500 hover:bg-indigo-600 py-1 px-2.5 w-full mt-2 hover:text-white"
+        >
+          Search
+        </button>
+        <div class="flex flex-col items-center justify-center w-full">
+          <div id="break" class="w-full"></div>
+          <ul id="history-container" class="w-full"></ul>
+        </div>
       </div>
 
-      <div class="basis-3/4 flex flex-col items-center justify-center">
-        <div>wa</div>
-        <div>ad</div>
-      </div>
+      <div class="basis-3/4 flex flex-col items-center min-h-full ml-5 my-5">
+        <div id="main-forecast" class="row rounded-lg border-4 border-sky-500 w-full px-5 bg-gradient-to-r from-sky-500 to-indigo-600 text-white"
+        ></div>
 
+        <div
+          id="day-forecast"
+          class="row flex flex-row justify-around items-center w-full"
+        >
+        </div>
+      </div>
     </main>
 
     <script src="./assets/js/script.js"></script>
