@@ -1,3 +1,4 @@
+/* local styles that are not accessible from tailwindcss */
 *{
     box-sizing: border-box;
 }

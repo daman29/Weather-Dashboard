@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <!-- Tailwindcss CDN link -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Watch</title>
@@ -22,12 +23,18 @@
   <body
     class="container mx-auto bg-slate-300 flex flex-col justify-center items-center"
   >
+  <!-- Header element with tailwind styles -->
     <header class="bg-gradient-to-r from-sky-500 to-indigo-600 w-screen">
       <h1 class="text-5xl text-center text-white py-2.5">Weather Watch</h1>
     </header>
 
-    <main class="container flex flex-col justify-around sm:flex-row sm:justify-around sm:items-start">
-      <div class="basis-1/4 flex flex-col items-center justify-center mx-3 sm:mx-0">
+    <main
+      class="container flex flex-col justify-around sm:flex-row sm:justify-around sm:items-start"
+    >
+    <!-- Div element with search and history elements -->
+      <div
+        class="basis-1/4 flex flex-col items-center justify-center mx-3 sm:mx-0"
+      >
         <h2 class="text-2xl text-center text-dark font-bold py-2.5">
           Search for a City:
         </h2>
@@ -45,19 +52,21 @@
         </button>
         <div class="flex flex-col items-center justify-center w-full">
           <div id="break" class="w-full"></div>
+          <!-- history unordered list element to hold all the search history maximum of 15 -->
           <ul id="history-container" class="w-full"></ul>
         </div>
       </div>
 
+      <!-- div element containing the search results and next 5 day forecast-->
       <div class="basis-3/4 flex flex-col items-center min-h-full sm:ml-5 my-5">
-        <div id="main-forecast" class="row rounded-lg text-white mx-2"
-        ></div>
+        <!-- div element containing the current forecast -->
+        <div id="main-forecast" class="row rounded-lg text-white"></div>
 
+        <!-- div element containing the next 5 day forecast -->
         <div
           id="day-forecast"
           class="row flex flex-col flex-wrap justify-around items-center w-full md:flex-nowrap sm:flex-row"
-        >
-        </div>
+        ></div>
       </div>
     </main>
 
