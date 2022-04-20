@@ -20,13 +20,13 @@
   </head>
 
   <body
-    class="container mx-auto bg-slate-300 flex flex-col justify-center items-center max-h-screen"
+    class="container mx-auto bg-slate-300 flex flex-col justify-center items-center"
   >
     <header class="bg-gradient-to-r from-sky-500 to-indigo-600 w-screen">
       <h1 class="text-5xl text-center text-white py-2.5">Weather Watch</h1>
     </header>
 
-    <main class="container flex flex-row justify-around">
+    <main class="container flex flex-col justify-around sm:flex-row">
       <div class="basis-1/4 flex flex-col items-center justify-center">
         <h2 class="text-2xl text-center text-dark font-bold py-2.5">
           Search for a City:
@@ -55,7 +55,7 @@
 
         <div
           id="day-forecast"
-          class="row flex flex-row justify-around items-center w-full"
+          class="row flex flex-col flex-wrap justify-around items-center w-full md:flex-nowrap sm:flex-row"
         >
         </div>
       </div>

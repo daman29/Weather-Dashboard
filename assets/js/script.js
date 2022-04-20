@@ -58,7 +58,7 @@ function printWeatherData(data, name){
       let temp = day.temp.day
       let wind = day.wind_speed
       let humid = day.humidity
-      return '<div class="flex flex-col basis-1/5 mx-3 border-sky-500 border-4 rounded-lg"><h3 class="row text-2xl text-dark font-bold">'+dateDaily +'</h3><img src="http://openweathermap.org/img/wn/'+icon+'" alt="'+iconAlt+'"><p class="row">Temp: '+temp+'°C</p><p class="row">Wind: '+wind+'</p><p class="row">Humidity: '+humid+' %</p></div>'
+      return '<div class="flex flex-col basis-1/5 mx-3 border-sky-500 border-4 rounded-lg px-2 py-2"><h3 class="row text-2xl text-dark font-bold">'+dateDaily +'</h3><img src="http://openweathermap.org/img/wn/'+icon+'" alt="'+iconAlt+'"><p class="row text-md">Temp: '+temp+'°C</p><p class="row">Wind: '+wind+' KPH</p><p class="row">Humidity: '+humid+' %</p></div>'
     }
   }).join(' ')
 }

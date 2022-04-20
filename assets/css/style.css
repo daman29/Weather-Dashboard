@@ -24,3 +24,9 @@ li{
     width: 100%;
     border-radius: 50px;
 }
+
+/* @media screen and (max-width: 886px) {
+    #day-forecast{
+        flex-wrap: wrap;
+    }
+} */
