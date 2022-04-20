@@ -99,7 +99,7 @@ function printWeatherData(data, name) {
         return (
           '<div class="flex flex-col basis-1/5 mx-3 border-sky-500 border-4 rounded-lg px-2 py-2 mb-2"><h3 class="row text-2xl text-dark font-bold">' +
           dateDaily +
-          '</h3><img src="http://openweathermap.org/img/wn/' +
+          '</h3><img src="https://openweathermap.org/img/wn/' +
           icon +
           '" alt="' +
           iconAlt +
@@ -144,7 +144,7 @@ function getWeatherdata(data, type) {
 // function to return search locations data such as latitude, longitude and name
 function apiRequest(cityName, type) {
   var fetchLatLon =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     cityName +
     "&limit=1&appid=e709763ea8ddaa60120d7a9bfd26c27e";
   fetch(fetchLatLon)
