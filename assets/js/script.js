@@ -58,12 +58,12 @@ function printWeatherData(data, name){
       let temp = day.temp.day
       let wind = day.wind_speed
       let humid = day.humidity
-      return '<div class="flex flex-col basis-1/5 mx-3 border-sky-500 border-4 rounded-lg px-2 py-2"><h3 class="row text-2xl text-dark font-bold">'+dateDaily +'</h3><img src="http://openweathermap.org/img/wn/'+icon+'" alt="'+iconAlt+'"><p class="row text-md">Temp: '+temp+'°C</p><p class="row">Wind: '+wind+' KPH</p><p class="row">Humidity: '+humid+' %</p></div>'
+      return '<div class="flex flex-col basis-1/5 mx-3 border-sky-500 border-4 rounded-lg px-2 py-2 mb-2"><h3 class="row text-2xl text-dark font-bold">'+dateDaily +'</h3><img src="http://openweathermap.org/img/wn/'+icon+'" alt="'+iconAlt+'"><p class="row text-md">Temp: '+temp+'°C</p><p class="row">Wind: '+wind+' KPH</p><p class="row">Humidity: '+humid+' %</p></div>'
     }
   }).join(' ')
 }
 
-function getWeatherdata(data){
+function getWeatherdata(data, type){
     let weatherData = data[0]
     if(weatherData === undefined){
       window.alert('Please input a valid location')
@@ -71,27 +71,38 @@ function getWeatherdata(data){
     }else{
       console.log(weatherData);
     let cityName = weatherData.name
-    saveCity(cityName);
+    if(type === 'search'){
+      saveCity(cityName);
+    }
     var url = "https://api.openweathermap.org/data/2.5/onecall?lat="+weatherData.lat+"&lon="+weatherData.lon+"&units=metric&appid=e709763ea8ddaa60120d7a9bfd26c27e"
     fetch(url).then((response) => {return response.json()}).then((resp)=> printWeatherData(resp, cityName))
     }
     
 }
 
-function apiRequest(cityName) {
+function apiRequest(cityName, type) {
 
   var fetchLatLon =
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
     cityName +
     "&limit=1&appid=e709763ea8ddaa60120d7a9bfd26c27e";
-  fetch(fetchLatLon).then((response) => {return response.json()}).then((data) => getWeatherdata(data))
+  fetch(fetchLatLon).then((response) => {return response.json()}).then((data) => getWeatherdata(data, type))
 }
+
+historyContainer.addEventListener("click",function(event){
+  event.preventDefault();
+  const cityName = event.target.textContent
+  var type = 'history'
+  apiRequest(cityName, type)
+})
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   const cityName = document.querySelector("#city-name").value;
-  apiRequest(cityName);
+  var type = 'search'
+  apiRequest(cityName, type);
 });
+
 document.addEventListener("keyup", function (event) {
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {

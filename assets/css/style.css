@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     font-family: 'Raleway', sans-serif;
     font-size: 1.5rem;
@@ -25,8 +28,7 @@ li{
     border-radius: 50px;
 }
 
-/* @media screen and (max-width: 886px) {
-    #day-forecast{
-        flex-wrap: wrap;
-    }
-} */
+li:hover{
+    background-color: rgb(16, 143, 202);
+    color: black;
+}
