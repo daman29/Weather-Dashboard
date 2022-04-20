@@ -46,10 +46,21 @@ function printWeatherData(data, name){
     boxColor = 'bg-orange-600'
   }
 
-  mainContainer.innerHTML = '<h2 class="row text-3xl text-dark font-bold">'+cityName+ '<span class="text-2xl font-light">' + ' ' +date+'</span></h2><p class="row">Temp: '+data.current.temp+'°C</p><p class="row">Wind: '+data.current.wind_speed+' KPH</p><p class="row">Humidity: '+data.current.humidity+' %</p><p id="uvi" class="row">UV Index: <span class="px-2 py-1 '+boxColor+' rounded-sm">'+data.current.uvi+'</span></p>'
+  mainContainer.classList.add("border-4","border-sky-500", "w-full", "px-5", "py-3", "mb-3" ,"bg-gradient-to-r", "from-sky-500", "to-indigo-600")
 
-  dailyContainer.innerHTML = '<div class="flex flex-col basis-1/5 mx-3"><h3 class="row text-2xl text-dark font-bold"></h3><p class="row">28.0C</p><p class="row"></p><p class="row"></p><p class="row"></p></div>'
+  mainContainer.innerHTML = '<h2 class="row text-3xl text-dark font-bold">'+cityName+ ' - <span class="text-2xl font-semibold text-slate-200">' + ' ' +date+'</span></h2><p class="row">Temp: '+data.current.temp+'°C</p><p class="row">Wind: '+data.current.wind_speed+' KPH</p><p class="row">Humidity: '+data.current.humidity+' %</p><p id="uvi" class="row">UV Index: <span class="px-2 py-1 '+boxColor+' rounded-sm">'+data.current.uvi+'</span></p>'
 
+  dailyContainer.innerHTML = data.daily.map((day, index)=>{
+    if(index>0 && index<6){
+      let dateDaily = new Date(day.dt*1000).toDateString()
+      let icon = day.weather[0].icon + '@2x.png'
+      let iconAlt = day.weather[0].description
+      let temp = day.temp.day
+      let wind = day.wind_speed
+      let humid = day.humidity
+      return '<div class="flex flex-col basis-1/5 mx-3 border-sky-500 border-4 rounded-lg"><h3 class="row text-2xl text-dark font-bold">'+dateDaily +'</h3><img src="http://openweathermap.org/img/wn/'+icon+'" alt="'+iconAlt+'"><p class="row">Temp: '+temp+'°C</p><p class="row">Wind: '+wind+'</p><p class="row">Humidity: '+humid+' %</p></div>'
+    }
+  }).join(' ')
 }
 
 function getWeatherdata(data){
